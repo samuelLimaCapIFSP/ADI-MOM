@@ -14,7 +14,7 @@ public class TesteProdutorFila {
         InitialContext context = new InitialContext();
         ConnectionFactory factory = (ConnectionFactory) context.lookup("ConnectionFactory");
 
-        Connection filaLogConnection = factory.createConnection();
+        Connection filaLogConnection = factory.createConnection("user","senha");
         filaLogConnection.start();
         Session logSession = filaLogConnection.createSession(false, Session.AUTO_ACKNOWLEDGE);
 
@@ -27,7 +27,7 @@ public class TesteProdutorFila {
 
         TopicConnectionFactory topicConnectionFactory = (TopicConnectionFactory) context.lookup("ConnectionFactory");
 
-        TopicConnection topicConnection = topicConnectionFactory.createTopicConnection();
+        TopicConnection topicConnection = topicConnectionFactory.createTopicConnection("guest","senha");
         topicConnection.start();
         TopicSession topicSession = topicConnection.createTopicSession(false, Session.AUTO_ACKNOWLEDGE);
 

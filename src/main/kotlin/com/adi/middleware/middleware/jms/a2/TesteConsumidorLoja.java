@@ -11,7 +11,7 @@ public class TesteConsumidorLoja {
         InitialContext context = new InitialContext();
         ConnectionFactory factory = (ConnectionFactory) context.lookup("ConnectionFactory");
 
-        Connection connection = factory.createConnection();
+        Connection connection = factory.createConnection("guest","senha");
         connection.start();
         Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
 
